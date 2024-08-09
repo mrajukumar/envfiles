@@ -1,0 +1,227 @@
+REPORT_GENERATION_TIME_VALUE: 5
+SCHEDULER_TIME_ZONE=US/Central
+temp testing start
+REPORT_GENERATION_TIME=5
+temp testing end
+Generating a 2048 bit RSA private key
+..........................+++
+........................................................................................................+++
+writing new private key to './private/ca_private_key.pem'
+-----
+Generating RSA private key, 2048 bit long modulus
+........+++
+............+++
+e is 65537 (0x10001)
+Using configuration from /opt/aiq-reports/testca/openssl.cnf
+Check that the request matches the signature
+Signature ok
+The Subject's Distinguished Name is as follows
+commonName            :ASN.1 12:'aiqdev.acqueonlab.com'
+organizationName      :ASN.1 12:'server'
+Certificate is to be certified until Jul 15 05:45:55 2026 GMT (999 days)
+
+Write out database with 1 new entries
+Data Base Updated
+Generating RSA private key, 2048 bit long modulus
+...............+++
+...............................................................+++
+e is 65537 (0x10001)
+Using configuration from /opt/aiq-reports/testca/openssl.cnf
+Check that the request matches the signature
+Signature ok
+The Subject's Distinguished Name is as follows
+commonName            :ASN.1 12:'aiqdev.acqueonlab.com'
+organizationName      :ASN.1 12:'client'
+Certificate is to be certified until Jul 15 05:45:55 2026 GMT (999 days)
+
+Write out database with 1 new entries
+Data Base Updated
+[1;32mSelf-Sign creation completed successfully !.[1;0m
+
+mount: can't find /tmp in /etc/fstab
+kinesis-consumer is up-to-date
+Recreating aiqbeat ... 
+Recreating aiqscheduler ... 
+aiq-rpt-core is up-to-date
+Recreating kinesis-consumer-ctr ... 
+aiq-rpt-frontend is up-to-date
+aiq-rpt-rtfeeder is up-to-date
+aiq-rpt-rtkconsumer is up-to-date
+[3A[2KRecreating aiqbeat              ... [32mdone[0m[3B[2A[2KRecreating aiqscheduler         ... [32mdone[0m[2B[1A[2KRecreating kinesis-consumer-ctr ... [32mdone[0m[1Buaa-frontend is up-to-date
+uaa-core is up-to-date
+revproxy is up-to-date
+found uaa container
+encrypting uaa db password
+Stopping uaa-core ... 
+[1A[2KStopping uaa-core ... [32mdone[0m[1Buaa-frontend is up-to-date
+Starting uaa-core ... 
+[1A[2KStarting uaa-core ... [32mdone[0m[1Bfound aiq core container
+creating database for aiq and uaa
+Unable to create database -  ('42000', "[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Database 'aiq' already exists. Choose a different database name. (1801) (SQLExecDirectW)")
+executing deployer
+WALLLL BOARD TIMER 30
+http://
+54.167.228.238:8080
+http://
+54.167.228.238:8080
+90
+9
+Operations to perform:
+  Apply all migrations: admin, auth, authtoken, contenttypes, easyaudit, sessions, wsapp
+Running migrations:
+  No migrations to apply.
+Inserting Menu
+Values already exists in Component Master
+Inserting sub Menus
+Values already exists in Module Master
+Inserting Dashboard Names
+Values already exists in Widget Category
+Inserting the Widgets
+Values already exists in Widget List
+Creating Roles
+Values already exists in Roles
+Creating ConfigParameters for AHT
+Values already exists in Configparameters
+Default Custom Dashboards
+Value Already exists in Default Custom Dashboards
+Calls handled widget updated already
+Chats handled widget updated already
+Renaming Calls in progress to Agents on call updated already
+Renaming Calls in progress chart  to Agents on call by queue updated already
+Miscellaneous component already exists
+Billing Reports component already exists
+Named agent already exists
+Wallboard Message already exists
+found uaa container
+executing deployer
+Creating tables....
+
+Operations to perform:
+  Apply all migrations: account, admin, auth, contenttypes, cx_admin, cx_id, cx_idp, oidc_provider, sessions, sites, socialaccount
+Running migrations:
+  No migrations to apply.
+  Your models have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
+/usr/local/lib64/python3.6/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+sed: couldn't open temporary file /opt/server/cx_admin/fixtures/sedb9iTa1: Read-only file system
+/usr/local/lib64/python3.6/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+Installed 31 object(s) from 1 fixture(s)
+/usr/local/lib64/python3.6/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+Installed 10 object(s) from 1 fixture(s)
+/usr/local/lib64/python3.6/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+Installed 1 object(s) from 1 fixture(s)
+found aiqscheduler container
+executing migrations for scheduler
+Redis HOST -  master.redis-aiq-test-acqueon-vpn.g89k7k.use1.cache.amazonaws.com SECURED_REDIS True
+this is  report generation time taken from env file 5
+Operations to perform:
+  Apply all migrations: django_celery_results
+Running migrations:
+  No migrations to apply.
+Redis HOST -  master.redis-aiq-test-acqueon-vpn.g89k7k.use1.cache.amazonaws.com SECURED_REDIS True
+this is  report generation time taken from env file 5
+Operations to perform:
+  Apply all migrations: django_celery_beat
+Running migrations:
+  No migrations to apply.
+found aiq rtk consumer
+intializing database and tables
+Creating database and tables ::
+Database [analytics] exists. Skipping database creation
+Table [callsabandoned] exists on database [analytics]. Skipping table creation
+Table [qtime] exists on database [analytics]. Skipping table creation
+Table [ansqtime] exists on database [analytics]. Skipping table creation
+Table [answered] exists on database [analytics]. Skipping table creation
+Table [callsqueued] exists on database [analytics]. Skipping table creation
+Table [callsanswered] exists on database [analytics]. Skipping table creation
+Table [talktime] exists on database [analytics]. Skipping table creation
+Table [holdtime] exists on database [analytics]. Skipping table creation
+Table [worktime] exists on database [analytics]. Skipping table creation
+Table [no_of_holds] exists on database [analytics]. Skipping table creation
+Table [longest_hold_duration] exists on database [analytics]. Skipping table creation
+Table [calls_put_on_hold] exists on database [analytics]. Skipping table creation
+Table [rona] exists on database [analytics]. Skipping table creation
+Table [agent_state] exists on database [analytics]. Skipping table creation
+Table [agent_state_summarized] exists on database [analytics]. Skipping table creation
+Table [trans_in] exists on database [analytics]. Skipping table creation
+Table [trans_out] exists on database [analytics]. Skipping table creation
+Table [agent_login_logout] exists on database [analytics]. Skipping table creation
+found kinesis consumer
+creating kafka topic
+KAFKA_CLUSTER ::  ['b-1.kafkaaiqdevenvvpn.tgq1l7.c10.kafka.us-east-1.amazonaws.com:9092', 'b-2.kafkaaiqdevenvvpn.tgq1l7.c10.kafka.us-east-1.amazonaws.com:9092']
+Kafka topic created -  aecfeed-topic
+found aiq rtk consumer
+updating schema for tables
+Updating schema in CTR table ::  callsabandoned
+Updating schema status: [200]
+Updating schema in CTR table ::  qtime
+Updating schema status: [200]
+Updating schema in CTR table ::  ansqtime
+Updating schema status: [200]
+Updating schema in CTR table ::  answered
+Updating schema status: [200]
+Updating schema in CTR table ::  callsqueued
+Updating schema status: [200]
+Updating schema in CTR table ::  callsanswered
+Updating schema status: [200]
+Updating schema in CTR table ::  talktime
+Updating schema status: [200]
+Updating schema in CTR table ::  holdtime
+Updating schema status: [200]
+Updating schema in CTR table ::  worktime
+Updating schema status: [200]
+Updating schema in CTR table ::  no_of_holds
+Updating schema status: [200]
+Updating schema in CTR table ::  longest_hold_duration
+Updating schema status: [200]
+Updating schema in CTR table ::  calls_put_on_hold
+Updating schema status: [200]
+Updating schema in CTR table ::  rona
+Updating schema status: [200]
+Updating schema in CTR table ::  trans_in
+Updating schema status: [200]
+Updating schema in CTR table ::  trans_out
+Updating schema status: [200]
+10.250.105.8 aiqdev.acqueonlab.com
+Stopping revproxy ... 
+[1A[2KStopping revproxy ... [32mdone[0m[1BRemoving revproxy ... 
+[1A[2KRemoving revproxy ... [32mdone[0m[1BNetwork aiq is external, skipping
+Stopping uaa-core     ... 
+Stopping uaa-frontend ... 
+[2A[2KStopping uaa-core     ... [32mdone[0m[2B[1A[2KStopping uaa-frontend ... [32mdone[0m[1BRemoving uaa-core     ... 
+Removing uaa-frontend ... 
+[2A[2KRemoving uaa-core     ... [32mdone[0m[2B[1A[2KRemoving uaa-frontend ... [32mdone[0m[1BNetwork aiq is external, skipping
+Stopping kinesis-consumer-ctr ... 
+Stopping aiqscheduler         ... 
+Stopping aiqbeat              ... 
+Stopping aiq-rpt-frontend     ... 
+Stopping aiq-rpt-core         ... 
+Stopping aiq-rpt-rtkconsumer  ... 
+Stopping aiq-rpt-rtfeeder     ... 
+Stopping kinesis-consumer     ... 
+[5A[2KStopping aiq-rpt-frontend     ... [32mdone[0m[5B[6A[2KStopping aiqbeat              ... [32mdone[0m[6B[7A[2KStopping aiqscheduler         ... [32mdone[0m[7B[4A[2KStopping aiq-rpt-core         ... [32mdone[0m[4B[8A[2KStopping kinesis-consumer-ctr ... [32mdone[0m[8B[3A[2KStopping aiq-rpt-rtkconsumer  ... [32mdone[0m[3B[1A[2KStopping kinesis-consumer     ... [32mdone[0m[1B[2A[2KStopping aiq-rpt-rtfeeder     ... [32mdone[0m[2BRemoving kinesis-consumer-ctr ... 
+Removing aiqscheduler         ... 
+Removing aiqbeat              ... 
+Removing aiq-rpt-frontend     ... 
+Removing aiq-rpt-core         ... 
+Removing aiq-rpt-rtkconsumer  ... 
+Removing aiq-rpt-rtfeeder     ... 
+Removing kinesis-consumer     ... 
+[5A[2KRemoving aiq-rpt-frontend     ... [32mdone[0m[5B[4A[2KRemoving aiq-rpt-core         ... [32mdone[0m[4B[8A[2KRemoving kinesis-consumer-ctr ... [32mdone[0m[8B[3A[2KRemoving aiq-rpt-rtkconsumer  ... [32mdone[0m[3B[6A[2KRemoving aiqbeat              ... [32mdone[0m[6B[7A[2KRemoving aiqscheduler         ... [32mdone[0m[7B[1A[2KRemoving kinesis-consumer     ... [32mdone[0m[1B[2A[2KRemoving aiq-rpt-rtfeeder     ... [32mdone[0m[2BRemoving network aiq
+Creating network "aiq" with the default driver
+Creating aiqbeat ... 
+Creating aiq-rpt-rtkconsumer ... 
+Creating aiq-rpt-core        ... 
+Creating aiqscheduler        ... 
+Creating aiq-rpt-frontend    ... 
+Creating aiq-rpt-rtfeeder    ... 
+Creating kinesis-consumer    ... 
+Creating kinesis-consumer-ctr ... 
+[6A[2KCreating aiq-rpt-core         ... [32mdone[0m[6B[1A[2KCreating kinesis-consumer-ctr ... [32mdone[0m[1B[8A[2KCreating aiqbeat              ... [32mdone[0m[8B[4A[2KCreating aiqscheduler         ... [32mdone[0m[4B[7A[2KCreating aiq-rpt-rtkconsumer  ... [32mdone[0m[7B[5A[2KCreating aiq-rpt-rtfeeder     ... [32mdone[0m[5B[2A[2KCreating kinesis-consumer     ... [32mdone[0m[2B[3A[2KCreating aiq-rpt-frontend     ... [32mdone[0m[3BCreating uaa-frontend ... 
+[1A[2KCreating uaa-frontend ... [32mdone[0m[1BCreating uaa-core     ... 
+[1A[2KCreating uaa-core     ... [32mdone[0m[1BCreating revproxy ... 
+[1A[2KCreating revproxy ... [32mdone[0m[1B

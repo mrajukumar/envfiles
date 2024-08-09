@@ -1,0 +1,31 @@
+DB_HOST=database-041023.cqv18805tsnh.us-east-1.rds.amazonaws.com
+DB_PORT=1433
+DB_NAME=uaa
+DB_SCHEMA=uaa
+DB_USER=admin
+DB_KEY=wqfDkcOXwqXCr8KqwrNtwpo=
+
+LOG_FILE_PATH=/opt/log/unified_portal.log
+LOG_LEVEL=DEBUG
+OIDC_GRANT_TYPE_KEY_ENABLE=True
+SERVER_NAME=aiqdev.acqueonlab.com
+IDP_BASE_URL=/sso/oidc/v2/
+ADMIN_CLIENT_ID=621439
+ADMIN_CLIENT_KEY=e66ad6c174fd5f83a25b95a84eb54e45604987d2a8a1a78f31d20ed2
+SSL_CHECK=False
+TZ=       Time zone: UTC (UTC, +0000)
+DEBUG=True
+USER_ACCOUNT_VERIFICATION=False
+EMAIL_HOST=
+EMAIL_PORT=
+EMAIL_HOST_USER=
+EMAIL_HOST_KEY=
+EMAIL_USE_TLS=False
+RESELLER=acqueon
+NAT_IP=202.125.92.117
+LOCKOUT_MAX_ATTEMPTS=3
+LOCKOUT_TIME=120
+LOCAL_DB=True
+LDAP_DB=True
+#Below environment variable is used to choose the database. The values should be psql/mssql/mysql.
+IDP_DATABASE=mssql

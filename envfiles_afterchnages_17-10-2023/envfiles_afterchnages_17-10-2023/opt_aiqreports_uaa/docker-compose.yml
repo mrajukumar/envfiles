@@ -1,0 +1,115 @@
+version: '2.1'
+
+services:
+  uaa:
+    image: acqueon/uaa-core:3.2.2
+    container_name: uaa-core
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    env_file: # <-- we use the previously defined values
+      - /opt/aiq-reports/uaa/envfile.uaa
+    restart: always
+    read_only: true
+    pids_limit: 50
+    security_opt:
+      - 'no-new-privileges:true'
+    volumes:
+      - /opt/aiq-reports/core/var/log/:/opt/log
+      - /opt/aiq-reports/core/var/run/:/opt/run
+    #external_links:
+    #  - acqueoncc_db_1
+    depends_on:
+      - uaa-frontend
+    networks:
+      - aiq
+      
+  uaa-frontend:
+    image: acqueon/uaa-frontend:3.2.2
+    container_name: uaa-frontend
+    ports:
+      - '8001:8001'
+    env_file:
+      - /opt/aiq-reports/uaa/envfile.uaa
+    restart: always
+    user: '123:nginx'
+    read_only: true
+    pids_limit: 50
+    security_opt:
+      - 'no-new-privileges:true'
+    volumes:
+      - /opt/aiq-reports/core/var/log/:/opt/log
+      - /opt/aiq-reports/core/var/run/:/opt/run
+    networks:
+      aiq:
+        aliases:
+          - uaa-fe
+
+networks:
+  aiq:
+    external: true

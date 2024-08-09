@@ -1,0 +1,215 @@
+version: "2.1"
+
+
+services:
+  aiq-frontend:
+    image: acqueon/aiq-rpt-frontend:1.1
+    container_name: aiq-rpt-frontend
+    user: '123:nginx'
+    ports:
+      - '8000:8000'
+    restart: always
+    read_only: true
+    pids_limit: 50
+    security_opt:
+      - 'no-new-privileges:true'
+    volumes:
+      - /opt/aiq-reports/core:/opt/aiq-reports/core
+      - /opt/aiq-reports/core/var/cache:/var/cache/nginx
+      - /opt/aiq-reports/core/var/log/nginx:/var/log/nginx
+      - /opt/aiq-reports/core/var/run/nginx:/var/run/nginx
+    sysctls:
+      - net.core.somaxconn=20480
+    networks:
+      aiq:
+        aliases:
+          - aiq-fe
+
+  aiq-core:
+    image: acqueon/aiq-rpt-core:1.1
+    container_name: aiq-rpt-core
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    extra_hosts:
+      - 'aiqdev.acqueonlab.com:10.250.105.8'
+    restart: always
+    read_only: true
+    pids_limit: 50
+    security_opt:
+      - 'no-new-privileges:true'
+    env_file:
+      - /opt/aiq-reports/core/envfile.core
+    volumes:
+      - /opt/aiq-reports/core:/opt/aiq-reports/core
+    sysctls:
+      - net.core.somaxconn=35840
+    networks:
+      - aiq
+
+  aiq-rtkconsumer:
+    image: acqueon/aiq-rpt-rtkconsumer:1.1
+    container_name: aiq-rpt-rtkconsumer
+    restart: always
+    read_only: true
+    pids_limit: 50
+    security_opt:
+      - 'no-new-privileges:true'
+    tty: true
+    env_file:
+      - /opt/aiq-reports/rtkconsumer/env.kconsumer
+    volumes:
+      - /opt/aiq-reports/core/var/log/rtkconsumer:/opt/aiq-reports/core/var/log/rtkconsumer
+    environment:
+      ID: 0
+    networks:
+      - aiq
+
+  aiq-rtfeeder:
+    image: acqueon/aiq-rpt-rtfeeder:1.1
+    container_name: aiq-rpt-rtfeeder
+    restart: always
+    read_only: true
+    pids_limit: 50
+    security_opt:
+      - 'no-new-privileges:true'
+    tty: true
+    env_file:
+      - /opt/aiq-reports/rtfeeder/env.rtfeeder
+    networks:
+      - aiq
+
+  kinesis-consumer:
+    image: acqueon/kinesis-consumer:1.1
+    container_name: kinesis-consumer
+    restart: always
+    read_only: true
+    pids_limit: 50
+    security_opt:
+      - 'no-new-privileges:true'
+    tty: true
+    env_file:
+      - /opt/aiq-reports/kinesis-consumer/env.kinesis
+    volumes:
+      - /opt/aiq-reports/core/var/log/kinesis-consumer:/opt/aiq-reports/core/var/log/kinesis-consumer
+    networks:
+      - aiq
+
+  kinesis-consumer-ctr:
+    image: acqueon/kinesis-consumer:1.1
+    container_name: kinesis-consumer-ctr
+    tty: true
+    restart: always
+    read_only: true
+    pids_limit: 50
+    security_opt:
+      - 'no-new-privileges:true'
+    env_file:
+      - /opt/aiq-reports/kinesis-consumer/env.kinesis.ctr
+    volumes:
+      - /opt/aiq-reports/core/var/log/kinesis-consumer:/opt/aiq-reports/core/var/log/kinesis-consumer
+    networks:
+      - aiq
+
+  worker:
+    image: acqueon/aiq-scheduler:1.1
+    container_name: aiqscheduler
+    command: [celery, --app=aiqscheduler, worker,--concurrency=8, -O, fair, --loglevel=INFO]
+    env_file:
+      - /opt/aiq-reports/scheduler/env.aiqscheduler
+    volumes:
+      - /opt/aiq-reports/core:/opt/aiq-reports/core
+      - /opt/aiq-reports/core/var/tmp:/var/tmp
+    tty: true
+    restart: always
+    read_only: true
+    pids_limit: 50
+    security_opt:
+      - 'no-new-privileges:true'
+    networks:
+      - aiq
+
+  beat:
+    image: acqueon/aiq-scheduler:1.1
+    container_name: aiqbeat
+    command: [celery, -A, aiqscheduler, beat, --loglevel=INFO]
+    tty: true
+    restart: always
+    read_only: true
+    pids_limit: 50
+    security_opt:
+      - 'no-new-privileges:true'
+    env_file:
+      - /opt/aiq-reports/scheduler/env.aiqscheduler
+    volumes:
+      - /opt/aiq-reports/core/var/log/aiqscheduler:/opt/aiq-reports/core/var/log/aiqscheduler
+
+    networks:
+      - aiq
+
+networks:
+  aiq:
+    name: aiq    

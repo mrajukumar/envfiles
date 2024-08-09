@@ -1,0 +1,55 @@
+#!/bin/bash
+
+SERVICE="/usr/local/bin/docker-compose"
+AIQ="/opt/aiq-reports/docker-compose.yml"
+UAA="/opt/aiq-reports/uaa/docker-compose.yml"
+REVPROXY="/opt/aiq-reports/revproxy/docker-compose.yml"
+
+start(){
+	$SERVICE -f $AIQ up -d
+	sleep 3
+	$SERVICE -f $UAA up -d
+	$SERVICE -f $REVPROXY up -d		
+}
+
+stop(){
+
+	$SERVICE -f $REVPROXY down
+	$SERVICE -f $UAA down
+	$SERVICE -f $AIQ down
+}
+
+pull(){
+	$SERVICE -f $REVPROXY pull
+	$SERVICE -f $AIQ pull
+	$SERVICE -f $UAA pull
+}
+
+status() {
+	docker ps -a --format "table {{.Names}}\t{{.Status}}" | sed 's/NAMES/SERVICES/g'
+}
+
+case "$1" in
+    start)
+        start
+    ;;
+
+    stop)
+        stop
+    ;;
+
+    status)
+        status
+    ;;
+
+    pull)
+        pull
+    ;;
+
+    *)
+        echo "Usage: /opt/aiq-reports/services {start|stop|status|pull}"
+        exit 3
+    ;;
+esac
+
+exit $?

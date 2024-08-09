@@ -1,0 +1,18 @@
+# Initializing timestream tables
+if [ "$(docker ps -q -f name=aiq-rpt-rtkconsumer)" ]; then
+    echo "found aiq rtk consumer"
+    if [ "$(docker ps -aq -f status=running -f name=aiq-rpt-rtkconsumer)" ]; then
+        echo "intializing database and tables"
+        docker exec aiq-rpt-rtkconsumer bash -c "python3 /opt/kconsumer/timestream-initialize.py"
+    fi
+fi
+
+# Creating Kafka topic
+if [ "$(docker ps -q -f name=kinesis-consumer)" ]; then
+    echo "found kinesis consumer"
+    if [ "$(docker ps -aq -f status=running -f name=kinesis-consumer)" ]; then
+        echo "creating kafka topic"
+        docker exec kinesis-consumer bash -c "python3 -c 'from kafka_create_topic import *; createTopic(\"aecfeed-topic\", 20, 2)'"
+    fi
+fi
+
